@@ -1,9 +1,18 @@
 const { ipcRenderer } = require('electron');
 
-document.getElementById('loadBranches').addEventListener('click', async () => {
-  const response = await fetch('/api/branches');
-  const branches = await response.json();
-  document.getElementById('branches').innerText = JSON.stringify(branches, null, 2);
+document.getElementById('selectProject').addEventListener('click', async () => {
+  const result = await ipcRenderer.invoke('select-directory');
+  if (result) {
+    const response = await fetch('/api/branches', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ path: result })
+    });
+    const branches = await response.json();
+    document.getElementById('branches').innerText = JSON.stringify(branches, null, 2);
+  }
 });
 
 document.getElementById('gitAdd').addEventListener('click', async () => {

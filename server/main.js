@@ -2,6 +2,7 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 import dotenv from 'dotenv';
 import path from 'path';
 import customPrompt from 'custom-electron-prompt';
+import './utils/electronUtils.js'
 
 dotenv.config();
 const appDirectory = process.cwd(); //當前工作資料夾
@@ -15,8 +16,8 @@ function createWindow() {
     width: 1200,
     height: 800,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      nodeIntegration: true,//允許在渲染進程中使用 Node.js
+      contextIsolation: false,//允許渲染器訪問 Node.js 環境
     }
   });
   mainWindow.loadURL(process.env.URL);

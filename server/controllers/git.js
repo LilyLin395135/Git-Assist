@@ -2,7 +2,8 @@ import simpleGit from 'simple-git';
 
 export async function getGitBranches(req, res, next) {
     try {
-        const git = simpleGit();
+        const { path } = req.body;
+        const git = simpleGit(path);
         const branches = await git.branchLocal();
         res.json(branches);
     } catch (error) {
@@ -12,8 +13,8 @@ export async function getGitBranches(req, res, next) {
 
 export async function processGitCommand(req, res, next) {
     try {
-        const { command, args } = req.body;
-        const git = simpleGit();
+        const { command, args, path } = req.body;
+        const git = simpleGit(path);
 
         let result;
         if (command === 'commit') {
