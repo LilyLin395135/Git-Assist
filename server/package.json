@@ -1,6 +1,7 @@
 {
   "name": "git-assist",
   "version": "1.0.0",
+  "description": "Git graphical & AI command tool",
   "type": "module",
   "main": "main.js",
   "scripts": {
@@ -11,7 +12,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "bin":{
+    "git-assist":"./cli.js"
+  },
   "dependencies": {
     "custom-electron-prompt": "^1.5.7",
     "electron-prompt": "^1.7.0",
