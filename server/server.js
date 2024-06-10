@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const appDirectory = process.cwd(); //當前工作資料夾
+const appDirectory = process.cwd();
 
 app.use(express.json());
 
