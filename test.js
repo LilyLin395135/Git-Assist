@@ -96,3 +96,5 @@ const commitRelationships = buildCommitRelationships(commits);
 commitRelationships.forEach(({ child, parent }) => {
   console.log(`${child} -> ${parent}`);
 });
+
+//123
