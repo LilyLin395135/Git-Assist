@@ -7,11 +7,9 @@ import './utils/electronUtils.js'
 dotenv.config();
 const appDirectory = process.cwd(); //當前工作資料夾
 
-let mainWindow; // 在外部作用域定義 mainWindow
+let mainWindow;
 
-//建立應用程式視窗
 function createWindow() {
-  // 應用程式視窗設定
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
