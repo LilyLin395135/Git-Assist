@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import gitRouter from './routes/git.js'
+import gitRouter from './routes/git.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import dotenv from 'dotenv';
 
